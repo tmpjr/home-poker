@@ -30,8 +30,8 @@ final class Game
 
         $players = [];
         for ($i = 1; $i <= $playerCount; $i++) {
-            echo "Player {$i}\n";
             $player = new Player($i);
+            echo "Player {$player->getName()}\n";
             for ($x = 1; $x <= 2; $x++) {
                 $card = $deck->dealCard();
                 $player->addCard($card);
@@ -49,7 +49,6 @@ final class Game
         }
         echo $board . "\n";
 
-        $ranking = 0;
         $lastRanking = 0;
         $winningPlayer = null;
         foreach ($players as $player) {
@@ -64,7 +63,7 @@ final class Game
         }
 
         if ($winningPlayer !== null) {
-            echo "\n *** WINNER IS PLAYER {$winningPlayer->getPlayerNo()} with a {$winningPlayer->getHandRank()} ***\n";
+            echo "\n *** WINNER IS PLAYER {$winningPlayer->getName()} with a {$winningPlayer->getHandRank()} ***\n";
         } else {
             echo "\n *** SOMETHING WENT WRONG, CASINO SCOOPS THE POT, HOUSE ALWAYS WINS! ***\n";
         }

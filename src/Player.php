@@ -31,6 +31,17 @@ class Player
     ];
 
     /**
+     * Player names
+     */
+    private $names = [
+        'JOHNNY CHAN',
+        'PHIL IVEY',
+        'MIKE McDERMOTT',
+        'TEDDY KGB',
+        'DOYLE BRUNSON',
+    ];
+
+    /**
      * @var int
      */
     private $playerNo;
@@ -49,7 +60,7 @@ class Player
      */
     public function __toString()
     {
-        return "Player " . $this->playerNo . " turns over " . $this->getHandRank() . " [{$this->getRankingInt()}]";
+        return "Player " . $this->getName() . " turns over " . $this->getHandRank() . " [{$this->getRankingInt()}]";
     }
 
     /**
@@ -66,6 +77,14 @@ class Player
     public function getPlayerNo()
     {
         return $this->playerNo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->names[($this->playerNo-1)];
     }
 
     /**
