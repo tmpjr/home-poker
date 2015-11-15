@@ -23,7 +23,7 @@ final class Game
             throw new InvalidPlayerCountException("You must enter a player count between 1 and 5");
         }
 
-        echo "Dealing to {$playerCount} players...\n";
+        echo "\nDealing to {$playerCount} players...\n\n";
 
         $deck = new Deck();
         $deck->create();
@@ -31,12 +31,13 @@ final class Game
         $players = [];
         for ($i = 1; $i <= $playerCount; $i++) {
             $player = new Player($i);
-            echo "Player {$player->getName()}\n";
+            echo "{$player->getName()}\n";
             for ($x = 1; $x <= 2; $x++) {
                 $card = $deck->dealCard();
                 $player->addCard($card);
                 echo "Hole Card {$x}: " . $card . "\n";
             }
+            echo "\n";
             $players[$i] = $player;
         }
 
@@ -47,7 +48,7 @@ final class Game
             $boardCards[] = $card;
             $board .= $card . " / ";
         }
-        echo $board . "\n";
+        echo $board . "\n\n";
 
         $lastRanking = 0;
         $winningPlayer = null;
@@ -63,9 +64,11 @@ final class Game
         }
 
         if ($winningPlayer !== null) {
-            echo "\n *** WINNER IS PLAYER {$winningPlayer->getName()} with a {$winningPlayer->getHandRank()} ***\n";
+            echo "\n#############################################\n";
+            echo "### WINNER IS {$winningPlayer->getName()} with a {$winningPlayer->getHandRank()}\n";
+            echo "#############################################\n";
         } else {
-            echo "\n *** SOMETHING WENT WRONG, CASINO SCOOPS THE POT, HOUSE ALWAYS WINS! ***\n";
+            echo "\n*** SOMETHING WENT WRONG, CASINO SCOOPS THE POT, HOUSE ALWAYS WINS! ***\n";
         }
     }
 

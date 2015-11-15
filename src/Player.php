@@ -60,7 +60,7 @@ class Player
      */
     public function __toString()
     {
-        return "Player " . $this->getName() . " turns over " . $this->getHandRank() . " [{$this->getRankingInt()}]";
+        return $this->getName() . " turns over " . $this->getHandRank() . " [{$this->getRankingInt()}]";
     }
 
     /**
