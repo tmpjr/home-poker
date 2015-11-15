@@ -2,8 +2,11 @@
 Home Poker - Coding Practical
 
 ### Requirements
-* [Composer](https://getcomposer.org/)
+* [Composer](https://getcomposer.org/) - For PSR-4 autoloading
 * PHP 5.6+
+
+### Summary
+Game.php contains the main execution methods. Deck, Card and Player classes are created and used.
 
 ### Installation
 CD into the folder where you cloned the repo and run:
